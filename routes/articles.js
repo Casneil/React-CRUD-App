@@ -46,5 +46,10 @@ router.put("/update/:id", (req, res) => {
 });
 
 /****************Request to find articles by id and delete*****************/
+router.delete("/:id", (req, res) => {
+  Articles.findByIdAndDelete(req.params.id)
+    .then(() => res.json("Article deleted!"))
+    .catch(error => res.status(400).json(`Error:${error}`));
+});
 
 module.exports = router;
