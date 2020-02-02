@@ -24,5 +24,6 @@ const MainContainer = styles.header`
       top:12.5%;
       left:50%;
       font-family:"Montserrat", sans-serif;
+      
   }
 `;

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Menu } from "semantic-ui-react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [active, setActive] = useState({
@@ -11,18 +12,22 @@ const Navbar = () => {
   const { activeItem } = active;
 
   return (
-    <div>
+    <div style={{ paddingBottom: 10 }}>
       <Menu pointing secondary>
-        <Menu.Item
-          name="home"
-          active={activeItem === "home"}
-          onClick={handleItemClick}
-        />
-        <Menu.Item
-          name="messages"
-          active={activeItem === "messages"}
-          onClick={handleItemClick}
-        />
+        <Link to="/">
+          <Menu.Item
+            name="home"
+            active={activeItem === "home"}
+            onClick={handleItemClick}
+          />
+        </Link>
+        <Link to="/add_new">
+          <Menu.Item
+            name="new article"
+            active={activeItem === "new article"}
+            onClick={handleItemClick}
+          />
+        </Link>
         <Menu.Item
           name="friends"
           active={activeItem === "friends"}

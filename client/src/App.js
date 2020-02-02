@@ -18,7 +18,7 @@ const App = () => {
       <Header />
       <Navbar />
       <Router posts={post} />
-      <Footer />
+      {/* <Footer /> */}
     </Fragment>
   );
 };
