@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import styles from "styled-components";
-import { Card, Grid, Image, Header } from "semantic-ui-react";
+import { Card, Grid, Image, Header, Container } from "semantic-ui-react";
 import { BackButton } from "./Buttons";
 
 import Loading from "./Loading";
@@ -27,7 +26,7 @@ const Article = ({ match }) => {
   if (title <= 0 || article <= 0 || authorName <= 0) return <Loading />;
 
   return (
-    <div style={{ paddingLeft: "1rem", paddingRight: "1rem" }}>
+    <Container>
       <Card fluid={true}>
         <Card.Content>
           <Image
@@ -48,7 +47,7 @@ const Article = ({ match }) => {
         </Card.Content>
       </Card>
       <BackButton />
-    </div>
+    </Container>
   );
 };
 

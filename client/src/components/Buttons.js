@@ -31,7 +31,7 @@ export const DeleteButton = ({ posts, deleteArticle }) => {
   );
 };
 
-export const EditButton = () => {
+export const EditButton = ({ link }) => {
   return (
     <Popup
       content="Edit Item"
@@ -44,7 +44,7 @@ export const EditButton = () => {
           floated="right"
           style={{ marginBottom: "1rem" }}
         >
-          <Button inverted color="green">
+          <Button inverted color="green" as={Link} to={link}>
             <Icon name="edit outline" />
           </Button>
           <Label as="a" basic color="green" pointing="left"></Label>

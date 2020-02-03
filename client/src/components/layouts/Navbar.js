@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Menu } from "semantic-ui-react";
+import { Menu, Container } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
@@ -13,34 +13,38 @@ const Navbar = () => {
 
   return (
     <div style={{ paddingBottom: "1rem" }}>
-      <Menu pointing secondary>
-        <Link to="/">
+      <Container>
+        <Menu pointing secondary>
           <Menu.Item
             name="home"
             active={activeItem === "home"}
             onClick={handleItemClick}
+            as={Link}
+            to="/"
           />
-        </Link>
-        <Link to="/add_new">
+
           <Menu.Item
             name="new article"
             active={activeItem === "new article"}
             onClick={handleItemClick}
+            as={Link}
+            to="/add_new"
           />
-        </Link>
-        <Menu.Item
-          name="friends"
-          active={activeItem === "friends"}
-          onClick={handleItemClick}
-        />
-        <Menu.Menu position="right">
+
           <Menu.Item
-            name="logout"
-            active={activeItem === "logout"}
+            name="friends"
+            active={activeItem === "friends"}
             onClick={handleItemClick}
           />
-        </Menu.Menu>
-      </Menu>
+          <Menu.Menu position="right">
+            <Menu.Item
+              name="logout"
+              active={activeItem === "logout"}
+              onClick={handleItemClick}
+            />
+          </Menu.Menu>
+        </Menu>
+      </Container>
     </div>
   );
 };
