@@ -7,29 +7,31 @@ import { EditButton, DeleteButton } from "./Buttons";
 const PostCard = ({ articles, deleteArticle }) => {
   const { article, title, authorName } = articles;
   return (
-    <Card>
-      <Card.Content>
-        <Image
-          floated="right"
-          size="mini"
-          src="https://react.semantic-ui.com/images/avatar/large/steve.jpg"
-        />
-        <Link to={{ pathname: `/article/${articles._id}` }}>
-          <Header as="h2">
-            <Card.Header>{title}</Card.Header>
-          </Header>
-        </Link>
-        {/* <Header as="h4"> */}
-        <Card.Meta>{authorName}</Card.Meta>
-        {/* </Header> */}
-        <Card.Description>{article}</Card.Description>
-        <br />
-        <Link to={{ pathname: `articles/update/${articles._id}` }}>
-          <EditButton />
-        </Link>
-        <DeleteButton posts={{ articles }} deleteArticle={deleteArticle} />
-      </Card.Content>
-    </Card>
+    <div>
+      <Card fluid={true}>
+        <Card.Content>
+          <Image
+            floated="right"
+            size="mini"
+            src="https://react.semantic-ui.com/images/avatar/large/steve.jpg"
+          />
+          <Link to={{ pathname: `/article/${articles._id}` }}>
+            <Header as="h2">
+              <Card.Header>{title}</Card.Header>
+            </Header>
+          </Link>
+          {/* <Header as="h4"> */}
+          <Card.Meta>{authorName}</Card.Meta>
+          {/* </Header> */}
+          <Card.Description>{article}</Card.Description>
+          <br />
+        </Card.Content>
+      </Card>
+      <DeleteButton posts={{ articles }} deleteArticle={deleteArticle} />
+      <Link to={{ pathname: `articles/update/${articles._id}` }}>
+        <EditButton />
+      </Link>
+    </div>
   );
 };
 

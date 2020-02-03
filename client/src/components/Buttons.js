@@ -8,7 +8,7 @@ export const DeleteButton = ({ posts, deleteArticle }) => {
   return (
     <Popup
       content="Delete Item"
-      position="right center"
+      position="top right"
       style={{ color: "red" }}
       trigger={
         <Button as="div" labelPosition="right" floated={"right"}>
@@ -30,10 +30,10 @@ export const EditButton = () => {
   return (
     <Popup
       content="Edit Item"
-      position="right center"
+      position="top right"
       style={{ color: "green" }}
       trigger={
-        <Button as="div" labelPosition="left" floated="left">
+        <Button as="div" labelPosition="left" floated="right">
           <Button inverted color="green">
             <Icon name="edit outline" />
           </Button>

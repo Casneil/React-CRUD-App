@@ -21,17 +21,12 @@ const Articles = ({ posts }) => {
       ) : (
         posts.map(post => {
           return (
-            <Grid columns={3} divided>
-              <Grid.Row>
-                {/* <Grid.Column> */}
-                <PostCard
-                  key={post._id}
-                  articles={post}
-                  deleteArticle={deleteArticleById}
-                />
-                {/* </Grid.Column> */}
-              </Grid.Row>
-            </Grid>
+            <PostCard
+              key={post._id}
+              articles={post}
+              deleteArticle={deleteArticleById}
+              styles={{ margin: 0 }}
+            />
           );
         })
       )}
