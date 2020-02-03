@@ -8,7 +8,7 @@ const AddArticle = () => {
   const [title, setTitle] = useState("");
   const [article, setArticle] = useState("");
 
-  const url = "http://localhost:8080";
+  const url = "http://localhost:8080/";
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -21,7 +21,7 @@ const AddArticle = () => {
     setAuthorName("");
     setArticle("");
     axios
-      .post(`${url}/articles/add`, articles)
+      .post(`${url}articles/add`, articles)
       .then(res => console.log(res.data))
       .catch(error => {
         console.log(error);
