@@ -19,4 +19,5 @@ const FooterContainer = styles.footer`
   bottom: 0;
   width: 100%;
   color: #fff;
+  position: 0;
 `;

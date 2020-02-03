@@ -7,7 +7,7 @@ import { EditButton, DeleteButton } from "./Buttons";
 const PostCard = ({ articles, deleteArticle }) => {
   const { article, title, authorName } = articles;
   return (
-    <div>
+    <div style={{ paddingLeft: "1rem", paddingRight: "1rem" }}>
       <Card fluid={true}>
         <Card.Content>
           <Image
@@ -27,6 +27,7 @@ const PostCard = ({ articles, deleteArticle }) => {
           <br />
         </Card.Content>
       </Card>
+
       <DeleteButton posts={{ articles }} deleteArticle={deleteArticle} />
       <Link to={{ pathname: `articles/update/${articles._id}` }}>
         <EditButton />

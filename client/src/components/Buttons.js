@@ -11,7 +11,12 @@ export const DeleteButton = ({ posts, deleteArticle }) => {
       position="top right"
       style={{ color: "red" }}
       trigger={
-        <Button as="div" labelPosition="right" floated={"right"}>
+        <Button
+          as="div"
+          labelPosition="right"
+          floated={"right"}
+          style={{ marginBottom: "1rem" }}
+        >
           <Button
             inverted
             color="red"
@@ -33,7 +38,12 @@ export const EditButton = () => {
       position="top right"
       style={{ color: "green" }}
       trigger={
-        <Button as="div" labelPosition="left" floated="right">
+        <Button
+          as="div"
+          labelPosition="left"
+          floated="right"
+          style={{ marginBottom: "1rem" }}
+        >
           <Button inverted color="green">
             <Icon name="edit outline" />
           </Button>

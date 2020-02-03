@@ -12,7 +12,7 @@ const Navbar = () => {
   const { activeItem } = active;
 
   return (
-    <div style={{ paddingBottom: 10 }}>
+    <div style={{ paddingBottom: "1rem" }}>
       <Menu pointing secondary>
         <Link to="/">
           <Menu.Item

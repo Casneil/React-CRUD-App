@@ -27,8 +27,8 @@ const Article = ({ match }) => {
   if (title <= 0 || article <= 0 || authorName <= 0) return <Loading />;
 
   return (
-    <div>
-      <Card>
+    <div style={{ paddingLeft: "1rem", paddingRight: "1rem" }}>
+      <Card fluid={true}>
         <Card.Content>
           <Image
             floated="right"
