@@ -61,3 +61,6 @@ export const BackButton = () => {
     </Link>
   );
 };
+export const SubmitButton = () => {
+  return <Button style={{ marginTop: "1rem" }}>Sumbit</Button>;
+};

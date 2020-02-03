@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Form, Input, TextArea, Button } from "semantic-ui-react";
+import { Form, Input, TextArea } from "semantic-ui-react";
 import styles from "styled-components";
+
+import { SubmitButton } from "./Buttons";
 
 const EditArticle = ({ match }) => {
   const [authorName, setAuthorName] = useState("");
@@ -67,12 +69,7 @@ const EditArticle = ({ match }) => {
             onChange={e => setArticle(e.target.value)}
             rows={7}
           />
-          <Form.Field
-            id="form-button-control-public"
-            control={Button}
-            content="Submit"
-            label=""
-          />
+          <SubmitButton />
         </Form>
       </div>
     </EditArticleContainer>

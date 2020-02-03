@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Form, Input, TextArea, Button } from "semantic-ui-react";
+import { Form, Input, TextArea } from "semantic-ui-react";
 import styles from "styled-components";
+
+import { SubmitButton } from "./Buttons";
 
 const AddArticle = () => {
   const [authorName, setAuthorName] = useState("");
@@ -56,12 +58,7 @@ const AddArticle = () => {
             onChange={e => setArticle(e.target.value)}
             rows={7}
           />
-          <Form.Field
-            id="form-button-control-public"
-            control={Button}
-            content="Submit"
-            label=""
-          />
+          <SubmitButton />
         </Form>
       </div>
     </AddArticleContainer>
