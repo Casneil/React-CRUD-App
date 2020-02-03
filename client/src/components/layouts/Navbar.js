@@ -3,16 +3,14 @@ import { Menu, Container } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  const [active, setActive] = useState({
-    activeItem: "home"
-  });
+  const pathname = window.location.pathname;
+  const path = pathname === "/" ? "home" : pathname.substr(1);
+  const [activeItem, setActiveItem] = useState(path);
 
-  const handleItemClick = (e, { name }) => setActive({ activeItem: name });
-
-  const { activeItem } = active;
+  const handleItemClick = (e, { name }) => setActiveItem(name);
 
   return (
-    <div style={{ paddingBottom: "1rem" }}>
+    <div style={{ paddingBottom: "2rem" }}>
       <Container>
         <Menu pointing secondary>
           <Menu.Item
@@ -24,8 +22,8 @@ const Navbar = () => {
           />
 
           <Menu.Item
-            name="new article"
-            active={activeItem === "new article"}
+            name="add_new"
+            active={activeItem === "add_new"}
             onClick={handleItemClick}
             as={Link}
             to="/add_new"
