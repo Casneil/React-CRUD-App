@@ -1,7 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Button, Icon, Label, Popup } from "semantic-ui-react";
 
-export const DeleteButton = () => {
+export const DeleteButton = ({ posts, deleteArticle }) => {
+  const { articles } = posts;
+
   return (
     <Popup
       content="Delete Item"
@@ -9,7 +12,11 @@ export const DeleteButton = () => {
       style={{ color: "red" }}
       trigger={
         <Button as="div" labelPosition="right" floated={"right"}>
-          <Button basic color="red">
+          <Button
+            inverted
+            color="red"
+            onClick={() => deleteArticle(articles._id)}
+          >
             <Icon name="delete" />
           </Button>
           <Label as="a" basic color="red" pointing="left"></Label>
@@ -27,12 +34,20 @@ export const EditButton = () => {
       style={{ color: "green" }}
       trigger={
         <Button as="div" labelPosition="left" floated="left">
-          <Button basic color="green">
+          <Button inverted color="green">
             <Icon name="edit outline" />
           </Button>
           <Label as="a" basic color="green" pointing="left"></Label>
         </Button>
       }
     />
+  );
+};
+
+export const BackButton = () => {
+  return (
+    <Link to="/">
+      <Button>Back</Button>
+    </Link>
   );
 };

@@ -1,14 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Form, Input, TextArea, Button } from "semantic-ui-react";
 import styles from "styled-components";
 
-const AddArticle = () => {
+const EditArticle = ({ match }) => {
   const [authorName, setAuthorName] = useState("");
   const [title, setTitle] = useState("");
   const [article, setArticle] = useState("");
 
   const url = "http://localhost:8080/";
+
+  useEffect(() => {
+    axios
+      .get(`${url}articles/${match.params.id}`)
+      .then(res => [
+        setTitle(res.data.title),
+        setArticle(res.data.article),
+        setAuthorName(res.data.authorName)
+      ])
+      .catch(error => console.log(error));
+  }, []);
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -21,7 +32,7 @@ const AddArticle = () => {
     setAuthorName("");
     setArticle("");
     axios
-      .post(`${url}articles/add`, articles)
+      .put(`${url}articles/update/${match.params.id}`, articles)
       .then(res => console.log(res.data))
       .catch(error => {
         console.log(error);
@@ -29,7 +40,7 @@ const AddArticle = () => {
   };
 
   return (
-    <AddArticleContainer>
+    <EditArticleContainer>
       <div className="container">
         <Form onSubmit={handleSubmit} encType="miltipart/form-data">
           <Form.Field
@@ -64,13 +75,13 @@ const AddArticle = () => {
           />
         </Form>
       </div>
-    </AddArticleContainer>
+    </EditArticleContainer>
   );
 };
 
-export default AddArticle;
+export default EditArticle;
 
-const AddArticleContainer = styles.div`
+const EditArticleContainer = styles.div`
 margin: 3rem auto;
 padding: 4rem;
 width: 31 rem;

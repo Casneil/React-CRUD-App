@@ -4,7 +4,7 @@ import { Card, Grid, Image, Header } from "semantic-ui-react";
 
 import { EditButton, DeleteButton } from "./Buttons";
 
-const PostCard = ({ articles }) => {
+const PostCard = ({ articles, deleteArticle }) => {
   const { article, title, authorName } = articles;
   return (
     <Card>
@@ -24,8 +24,10 @@ const PostCard = ({ articles }) => {
         {/* </Header> */}
         <Card.Description>{article}</Card.Description>
         <br />
-        <EditButton />
-        <DeleteButton />
+        <Link to={{ pathname: `articles/update/${articles._id}` }}>
+          <EditButton />
+        </Link>
+        <DeleteButton posts={{ articles }} deleteArticle={deleteArticle} />
       </Card.Content>
     </Card>
   );

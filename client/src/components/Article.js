@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "styled-components";
 import { Card, Grid, Image, Header } from "semantic-ui-react";
+import { BackButton } from "./Buttons";
+
+import Loading from "./Loading";
 
 const Article = ({ match }) => {
   const [article, setArticle] = useState("");
@@ -21,26 +24,31 @@ const Article = ({ match }) => {
       .catch(error => console.log(error));
   }, []);
 
+  if (title <= 0 || article <= 0 || authorName <= 0) return <Loading />;
+
   return (
-    <Card>
-      <Card.Content>
-        <Image
-          floated="right"
-          size="mini"
-          src="https://react.semantic-ui.com/images/avatar/large/steve.jpg"
-        />
+    <div>
+      <Card>
+        <Card.Content>
+          <Image
+            floated="right"
+            size="mini"
+            src="https://react.semantic-ui.com/images/avatar/large/steve.jpg"
+          />
 
-        <Header as="h2">
-          <Card.Header>{title}</Card.Header>
-        </Header>
+          <Header as="h2">
+            <Card.Header>{title}</Card.Header>
+          </Header>
 
-        {/* <Header as="h4"> */}
-        <Card.Meta>{authorName}</Card.Meta>
-        {/* </Header> */}
-        <Card.Description>{article}</Card.Description>
-        <br />
-      </Card.Content>
-    </Card>
+          {/* <Header as="h4"> */}
+          <Card.Meta>{authorName}</Card.Meta>
+          {/* </Header> */}
+          <Card.Description>{article}</Card.Description>
+          <br />
+        </Card.Content>
+      </Card>
+      <BackButton />
+    </div>
   );
 };
 
